@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Music</title>
+        <link rel="stylesheet" href="photon.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="window" style="background-color: lightgray; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px">
+            <div class="drag" style="width: 100%; height:15px;"></div>
+            <div class="tray" style="display:inline;">
+                <button id="closebtn" class="pull-right" style="background-color:transparent; border-color:transparent;"> 
+                    <img src="assets/close.png" height="25" width="25"/>
+                </button>
+                <button id="minimizebtn" class="pull-right"style="background-color:transparent; border-color:transparent;"> 
+                    <img src="assets/minimize.png" height="25" width="25"/>
+                </button>
+            </div>
+            <div class="mainWindow">
+                <div class="whiteWindow">
+                    <div class="window-content">
+                        <input type="file" style="display: none" multiple musicSelected() id="fileinput">
+                        <audio src=""></audio>
+                        <div class="padding-more">
+                            <div class="titleRoom" style="height:28px; margin-top: -0.5rem; margin-bottom:0.5rem;">
+                                <h4 style="color: #fff ; text-shadow: 1px 1px 2px #fff, 0 0 25px #68777c, 0 0 15px #68777c;"></h4>
+                            </div> 
+                            <div class="musictable">
+                                <table>
+                                    <thead>
+                                        <tr style="display: inline-flexbox; visibility: hidden;" id="titlendur">
+                                            <th>Title</th>
+                                            <th>Duration</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody id="table-body">
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <header class="toolbar toolbar-header">
+                <div class="toolbar-actions">
+                    <div class="btn-group">
+                        <button class="btn btn-default" playPrevious() id="prev" style="position:absolute; top:150px; left:105px;">
+                            <img src="assets/previous.png" class="icon"></img>
+                        </button>
+                        <button class="btn btn-default active" id="play-button" onclick="play()" style="position:absolute; top:225px; left:182px;">
+                            <img src="assets/play.png" class="icon" id="btnplay"></img>
+                        </button>
+                        <button class="btn btn-default" playNext() id="next" style="position:absolute; top:150px; left:248px;">
+                            <img src="assets/next.png" class="icon"></img>
+                        </button>
+                    </div>
+
+                    <span style="margin-left:40px; position:absolute; top:315px; left:105px; font-size:15px; color:#fff;">
+                        <span id="time-left">00:00 </span> | <span id="total-time">00:00</span>
+                    </span>
+                    
+                    <button id="button" class="btn btn-default btn-large" addMusic() >
+                        <img class="icon icon-plus icon-text" style="width: 16px; height: 16px;" src="assets/plus.png">Add</img>
+                    </button>
+                </div>
+            </header>
+
+            <footer class="toolbar toolbar-footer">
+                <div class="toolbar-actions">
+                    <div style="display: inline-block; margin-top: 5px; margin-left: 5px;">
+                        <input type="range" min="0" max="1" step="0.01" oninput="changeVolume(this)">
+                    </div>
+                    <button class="btn btn-default pull-right" style="font-size:15px;" onclick="clearPlaylist()">
+                        Clear Playlist
+                    </button>
+                </div>
+            </footer>
+            <div class="player">
+                <img src="assets/button.jpg">
+            </div>
+        </div>
+        
+        <script src="script.js"></script>
+    </body>
+</html>
